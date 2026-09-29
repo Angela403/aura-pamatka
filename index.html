@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Aura by Angel — памятка по уходу</title>
 
-<!-- Fallback-шрифты из Google (на случай, если локальные не подгрузятся) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Jost:wght@300;400&display=swap" rel="stylesheet">
@@ -68,7 +67,7 @@
     margin-bottom: -50px;
   }
 
-  /* ═══════════ БАЗОВАЯ КАРТОЧКА A5 (148×210 мм) ═══════════ */
+  /* ═══════════ БАЗОВАЯ КАРТОЧКА A5 (594×842 px — для экрана) ═══════════ */
   .card {
     width: 594px;
     height: 842px;
@@ -80,7 +79,6 @@
     flex-direction: column;
   }
 
-  /* ─── Общая внутренняя обёртка ─── */
   .frame-wrap {
     border: 1px solid var(--ink-faint);
     border-radius: 12px;
@@ -112,7 +110,6 @@
     margin-bottom: 24px;
   }
 
-  /* ─── Заголовок карточки — Gilroy-Light ─── */
   .title {
     font-family: 'Gilroy', 'Jost', sans-serif;
     font-weight: 300;
@@ -154,7 +151,6 @@
     flex-grow: 1;
   }
 
-  /* «Следует / Не следует» — Snell Roundhand */
   .col__title {
     font-family: 'SnellRoundhand', 'Italianno', cursive;
     font-weight: normal;
@@ -231,7 +227,7 @@
   }
 
   /* ═══════════════════════════════════════════
-     ВАРИАНТ 1 — светлый крем + рамка
+     ВАРИАНТ 1 — светлый крем
      ═══════════════════════════════════════════ */
   .v1 {
     background: #F5EDE0;
@@ -242,51 +238,177 @@
   }
 
   /* ═══════════════════════════════════════════
-     ВАРИАНТ 8 — глубокое вино + золото
+     ВАРИАНТ 8 — глубокое вино
      ═══════════════════════════════════════════ */
   .v8 {
-    background: #3E1A1E;
-    --ink: #FEEFB8;
+    background: #310E12;
+    --ink: #F5EDE0;
     --accent: #8A6068;
-    --ink-soft: rgba(254, 239, 184, 0.72);
-    --ink-faint: rgba(254, 239, 184, 0.22);
+    --ink-soft: rgba(245, 237, 224, 0.72);
+    --ink-faint: rgba(245, 237, 224, 0.18);
     padding: 56px 52px;
   }
 
-  .v8 .brand { color: #FEEFB8; }
-  .v8 .tagline { color: #E5C66B; }
-  .v8 .title { color: #FEEFB8; }
-  .v8 .divider { background: #E5C66B; }
-  .v8 .lead { color: rgba(254, 239, 184, 0.72); }
-  .v8 .col__title { color: #FEEFB8; }
-  .v8 .col__title--muted { color: #E5C66B; }
-  .v8 .col li { color: rgba(254, 239, 184, 0.9); }
-  .v8 .col li::before { background: #E5C66B; }
-  .v8 .footer { border-top-color: rgba(254, 239, 184, 0.22); }
-  .v8 .footer__warranty { color: #FEEFB8; }
-  .v8 .footer__contact { color: #E5C66B; }
-
+  .v8 .brand { color: #F5EDE0; }
+  .v8 .tagline { color: #8A6068; }
+  .v8 .title { color: #F5EDE0; }
+  .v8 .divider { background: #8A6068; }
+  .v8 .lead { color: rgba(245, 237, 224, 0.72); }
+  .v8 .col__title { color: #F5EDE0; }
+  .v8 .col__title--muted { color: #8A6068; }
+  .v8 .col li { color: rgba(245, 237, 224, 0.9); }
+  .v8 .col li::before { background: #8A6068; }
+  .v8 .footer { border-top-color: rgba(245, 237, 224, 0.18); }
+  .v8 .footer__warranty { color: #F5EDE0; }
+  .v8 .footer__contact { color: #8A6068; }
+  .v8 .col__divider { background: #8A6068; }
   .v8 .columns { gap: 40px; }
 
-  .v8 .col__divider { background: #E5C66B; }
-
-  /* ═══════════ ПЕЧАТЬ (A5 без полей) ═══════════ */
+  /* ═══════════ ПЕЧАТЬ ═══════════ */
   @media print {
-    body {
-      background: #fff;
-      padding: 0;
-      gap: 0;
-    }
+    body { background: #fff; padding: 0; gap: 0; }
     .variant-label { display: none; }
     .card {
       box-shadow: none;
       page-break-after: always;
       margin: 0 auto;
     }
-    @page {
-      size: A5;
-      margin: 0;
+    @page { size: A5; margin: 0; }
+  }
+
+  /* ═══════════════════════════════════════════
+     МОБИЛЬНАЯ ВЕРСИЯ — карточки тянутся по ширине экрана
+     ═══════════════════════════════════════════ */
+
+  /* Планшеты и небольшие ноутбуки — уменьшаем базовую карточку */
+  @media (max-width: 660px) {
+    body {
+      padding: 30px 14px;
+      gap: 40px;
     }
+
+    .variant-label {
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      margin-bottom: -30px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 100%;
+      height: auto;         /* высота по контенту */
+      aspect-ratio: auto;
+      padding: 22px;
+    }
+
+    .frame-wrap {
+      padding: 26px 22px;
+      border-radius: 10px;
+    }
+
+    .v8 { padding: 30px 22px; }
+
+    .brand { font-size: 34px; margin-bottom: 4px; }
+    .tagline { font-size: 8px; letter-spacing: 0.28em; margin-bottom: 18px; }
+
+    .title { font-size: 19px; margin-bottom: 10px; }
+
+    .divider { margin-bottom: 16px; }
+
+    .lead { font-size: 11.5px; line-height: 1.55; margin-bottom: 22px; }
+
+    .col__title { font-size: 26px; }
+    .col__divider { margin: 8px auto 14px; }
+
+    .col ul { gap: 9px; }
+    .col li { font-size: 10.5px; line-height: 1.5; padding-left: 16px; }
+    .col li::before { width: 5px; height: 5px; top: 6px; }
+
+    .footer { margin-top: 20px; padding-top: 16px; }
+    .footer__warranty { font-size: 11.5px; }
+    .footer__contact { font-size: 8px; letter-spacing: 0.26em; }
+  }
+
+  /* Телефоны — карточки становятся вертикальными, колонки друг под другом */
+  @media (max-width: 560px) {
+    body {
+      padding: 24px 10px;
+      gap: 30px;
+    }
+
+    .variant-label {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      margin-bottom: -22px;
+    }
+
+    .card {
+      padding: 16px;
+      border-radius: 0;      /* край в край — как книжечка */
+    }
+
+    .frame-wrap {
+      padding: 22px 18px;
+      border-radius: 8px;
+    }
+
+    .v8 { padding: 26px 18px; }
+
+    .brand { font-size: 28px; }
+
+    .tagline {
+      font-size: 7px;
+      letter-spacing: 0.24em;
+      margin-bottom: 16px;
+    }
+
+    .title { font-size: 16px; letter-spacing: 0.05em; margin-bottom: 10px; }
+
+    .divider { width: 32px; margin-bottom: 14px; }
+
+    .lead {
+      font-size: 11px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      max-width: 100%;
+    }
+
+    /* Колонки — в одну колонку */
+    .columns, .v8 .columns {
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .col__title {
+      font-size: 24px;
+      text-align: left;
+      padding-left: 6px;
+    }
+    .col__title--muted { padding-left: 6px; }
+
+    .col__divider {
+      margin: 6px 0 12px 6px;
+    }
+
+    .col ul { gap: 8px; }
+    .col li { font-size: 11px; line-height: 1.5; padding-left: 16px; }
+    .col li::before { width: 5px; height: 5px; top: 6px; }
+
+    .footer { margin-top: 22px; padding-top: 14px; }
+    .footer__warranty { font-size: 11px; }
+    .footer__contact { font-size: 8px; letter-spacing: 0.24em; }
+  }
+
+  /* Очень маленькие телефоны */
+  @media (max-width: 380px) {
+    .brand { font-size: 24px; }
+    .title { font-size: 14px; }
+    .lead { font-size: 10.5px; }
+    .col__title { font-size: 22px; }
+    .col li { font-size: 10.5px; }
+    .card { padding: 12px; }
+    .frame-wrap { padding: 18px 14px; }
+    .v8 { padding: 20px 14px; }
   }
 </style>
 </head>

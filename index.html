@@ -57,30 +57,30 @@
     flex-direction: column;
     position: relative;
     transform-origin: center center;
-    /* Убираем визуальную тень при экспорте, чтобы не было артефактов */
-    box-shadow: none; 
+    box-shadow: none;
   }
-  
-  /* Тень только для предпросмотра на экране */
+
   .stage:not(.exporting) #card {
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
   }
 
-
-  /* Тонкая рамка по периметру */
-  #card::before {
-    content: "";
+  /* Тонкая рамка по периметру — отдельный элемент */
+  .card-frame {
     position: absolute;
-    inset: 56px;
+    top: 56px;
+    right: 56px;
+    bottom: 56px;
+    left: 56px;
     border: 2px solid rgba(245, 237, 224, 0.14);
     border-radius: 30px;
     pointer-events: none;
+    box-sizing: border-box;
   }
 
-  /* ─── Верхняя часть (Сдвинута вниз для Safe Zone) ─── */
+  /* ─── Верхняя часть ─── */
   .top {
     text-align: center;
-    padding-top: 100px; /* ~250px от верха с учётом padding родителя */
+    padding-top: 100px;
     margin-bottom: 100px;
   }
 
@@ -183,10 +183,10 @@
     opacity: 0.9;
   }
 
-  /* ─── Подвал (Сдвинут вверх для Safe Zone) ─── */
+  /* ─── Подвал ─── */
   .footer {
     margin-top: 70px;
-    padding-bottom: 100px; /* ~250px от низа */
+    padding-bottom: 100px;
     text-align: center;
   }
 
@@ -247,7 +247,6 @@
     white-space: nowrap;
   }
 
-  /* Мобильный просмотр */
   @media (max-width: 720px) {
     .hint { font-size: 10px; letter-spacing: 0.14em; }
     .save-btn { padding: 14px 32px; font-size: 13px; }
@@ -258,6 +257,8 @@
 
 <div class="stage">
   <div id="card">
+
+    <div class="card-frame"></div>
 
     <div class="top">
       <div class="brand">Aura by Angel</div>
@@ -335,24 +336,29 @@
     if (exporting) return;
     exporting = true;
 
-    // 1. СБРОС МАСШТАБА: возвращаем карточку в исходный размер 1080x1920
+    // Сброс масштаба для точного снимка
     const originalTransform = card.style.transform;
     card.style.transform = 'scale(1)';
-    
-    // 2. Скрываем тень на время экспорта
-    stage.classList.add('exporting'); 
+
+    // Скрываем тень на время экспорта
+    stage.classList.add('exporting');
 
     try {
       const canvas = await html2canvas(card, {
-        width: 1080,          // Явно указываем размеры
+        width: 1080,
         height: 1920,
-        scale: 1,             // Не масштабируем, так как размер уже точный
+        scale: 1,
         useCORS: true,
         backgroundColor: '#310E12',
         logging: false,
-        // Явно передаём размеры окна, чтобы избежать проблем с вычислением
         windowWidth: 1080,
-        windowHeight: 1920
+        windowHeight: 1920,
+        scrollX: 0,
+        scrollY: 0,
+        allowTaint: false,
+        removeContainer: true,
+        x: 0,
+        y: 0
       });
 
       const dataUrl = canvas.toDataURL('image/png');
@@ -375,7 +381,6 @@
       console.error('Ошибка экспорта:', e);
       alert('Не удалось создать изображение. Попробуйте ещё раз.');
     } finally {
-      // Возвращаем всё как было
       card.style.transform = originalTransform;
       stage.classList.remove('exporting');
       exporting = false;
@@ -396,7 +401,7 @@
   // ─── Долгое нажатие ───
   let longPressTimer = null;
 
-  function startLongPress(e) {
+  function startLongPress() {
     longPressTimer = setTimeout(() => {
       exportToPng();
     }, 600);

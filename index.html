@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Aura by Angel — памятка по уходу</title>
+<title>Aura by Angel — уход · Story</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,128 +46,122 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: #D9CFBB;
+    background: #1a0a0c;
     font-family: 'Gilroy', 'Jost', sans-serif;
     font-weight: 300;
-    padding: 50px 20px;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 70px;
+    justify-content: center;
+    padding: 20px;
     -webkit-font-smoothing: antialiased;
   }
 
-  .variant-label {
-    font-family: 'Gilroy', 'Jost', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: #310E12;
-    opacity: 0.55;
-    margin-bottom: -50px;
-  }
-
-  /* ═══════════ БАЗОВАЯ КАРТОЧКА A5 (594×842 px — для экрана) ═══════════ */
-  .card {
-    width: 594px;
-    height: 842px;
-    padding: 40px;
+  /* ═══════════ СТОРИ 9:16 — 1080×1920 (на экране 432×768) ═══════════ */
+  .story {
+    width: 432px;
+    height: 768px;
+    background: #310E12;
+    color: #F5EDE0;
+    padding: 56px 44px;
+    display: flex;
+    flex-direction: column;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(49, 14, 18, 0.15);
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
   }
 
-  .frame-wrap {
-    border: 1px solid var(--ink-faint);
-    border-radius: 12px;
-    padding: 44px 40px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  /* Тонкая внутренняя рамка */
+  .story::before {
+    content: "";
+    position: absolute;
+    inset: 22px;
+    border: 1px solid rgba(245, 237, 224, 0.14);
+    border-radius: 14px;
+    pointer-events: none;
   }
 
-  /* ─── Шапка ─── */
+  /* ─── Верхняя часть ─── */
+  .top {
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 44px;
+  }
+
   .brand {
     font-family: 'SnellRoundhand', 'Italianno', cursive;
     font-weight: normal;
-    font-size: 44px;
-    text-align: center;
+    font-size: 54px;
     line-height: 1;
-    margin-bottom: 6px;
-    color: var(--ink);
+    color: #F5EDE0;
+    margin-bottom: 10px;
   }
 
   .tagline {
     font-family: 'Gilroy', 'Jost', sans-serif;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 300;
-    letter-spacing: 0.34em;
+    letter-spacing: 0.38em;
     text-transform: uppercase;
-    text-align: center;
-    color: var(--accent);
-    margin-bottom: 24px;
+    color: #8A6068;
   }
 
+  /* ─── Заголовок ─── */
   .title {
     font-family: 'Gilroy', 'Jost', sans-serif;
     font-weight: 300;
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
-    line-height: 1.2;
-    letter-spacing: 0.06em;
+    line-height: 1.25;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    margin-bottom: 14px;
-    color: var(--ink);
+    color: #F5EDE0;
+    margin-bottom: 18px;
   }
 
   .divider {
     width: 40px;
     height: 1px;
-    background: var(--accent);
-    opacity: 0.55;
-    margin: 0 auto 22px;
+    background: #8A6068;
+    margin: 0 auto 26px;
   }
 
   .lead {
     font-family: 'Gilroy', 'Jost', sans-serif;
     font-weight: 300;
-    font-size: 12.5px;
+    font-size: 13px;
     line-height: 1.6;
     text-align: center;
-    color: var(--ink-soft);
-    margin-bottom: 30px;
-    max-width: 380px;
-    margin-left: auto;
-    margin-right: auto;
+    color: rgba(245, 237, 224, 0.72);
+    margin: 0 auto 38px;
+    max-width: 320px;
   }
 
   /* ─── Две колонки ─── */
   .columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 34px;
+    gap: 26px;
     flex-grow: 1;
   }
 
   .col__title {
     font-family: 'SnellRoundhand', 'Italianno', cursive;
     font-weight: normal;
-    font-size: 34px;
+    font-size: 30px;
     text-align: center;
     margin-bottom: 6px;
     line-height: 1;
-    color: var(--ink);
+    color: #F5EDE0;
   }
-  .col__title--muted { color: var(--accent); }
+  .col__title--muted { color: #8A6068; }
 
   .col__divider {
     width: 20px;
     height: 1px;
     background: currentColor;
-    opacity: 0.4;
-    margin: 10px auto 18px;
+    opacity: 0.5;
+    margin: 8px auto 16px;
   }
 
   .col ul {
@@ -182,8 +176,8 @@
     font-weight: 300;
     font-size: 11.5px;
     line-height: 1.5;
-    color: var(--ink);
-    padding-left: 18px;
+    color: rgba(245, 237, 224, 0.9);
+    padding-left: 16px;
     position: relative;
   }
 
@@ -192,284 +186,70 @@
     position: absolute;
     left: 0;
     top: 7px;
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
-    background: var(--accent);
-    opacity: 0.75;
+    background: #8A6068;
+    opacity: 0.85;
   }
 
   /* ─── Подвал ─── */
   .footer {
     margin-top: 26px;
-    padding-top: 20px;
-    border-top: 1px solid var(--ink-faint);
+    padding-top: 22px;
+    border-top: 1px solid rgba(245, 237, 224, 0.16);
     text-align: center;
   }
 
   .footer__warranty {
     font-family: 'Gilroy', 'Jost', sans-serif;
     font-weight: 300;
-    font-size: 13px;
-    letter-spacing: 0.08em;
+    font-size: 12px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-bottom: 6px;
-    color: var(--ink);
+    margin-bottom: 8px;
+    color: #F5EDE0;
   }
 
   .footer__contact {
     font-family: 'Gilroy', 'Jost', sans-serif;
     font-weight: 300;
     font-size: 9px;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: #8A6068;
   }
 
-  /* ═══════════════════════════════════════════
-     ВАРИАНТ 1 — светлый крем
-     ═══════════════════════════════════════════ */
-  .v1 {
-    background: #F5EDE0;
-    --ink: #310E12;
-    --accent: #8A6068;
-    --ink-soft: rgba(49, 14, 18, 0.65);
-    --ink-faint: rgba(49, 14, 18, 0.18);
-  }
-
-  /* ═══════════════════════════════════════════
-     ВАРИАНТ 8 — глубокое вино
-     ═══════════════════════════════════════════ */
-  .v8 {
-    background: #310E12;
-    --ink: #F5EDE0;
-    --accent: #8A6068;
-    --ink-soft: rgba(245, 237, 224, 0.72);
-    --ink-faint: rgba(245, 237, 224, 0.18);
-    padding: 56px 52px;
-  }
-
-  .v8 .brand { color: #F5EDE0; }
-  .v8 .tagline { color: #8A6068; }
-  .v8 .title { color: #F5EDE0; }
-  .v8 .divider { background: #8A6068; }
-  .v8 .lead { color: rgba(245, 237, 224, 0.72); }
-  .v8 .col__title { color: #F5EDE0; }
-  .v8 .col__title--muted { color: #8A6068; }
-  .v8 .col li { color: rgba(245, 237, 224, 0.9); }
-  .v8 .col li::before { background: #8A6068; }
-  .v8 .footer { border-top-color: rgba(245, 237, 224, 0.18); }
-  .v8 .footer__warranty { color: #F5EDE0; }
-  .v8 .footer__contact { color: #8A6068; }
-  .v8 .col__divider { background: #8A6068; }
-  .v8 .columns { gap: 40px; }
-
-  /* ═══════════ ПЕЧАТЬ ═══════════ */
-  @media print {
-    body { background: #fff; padding: 0; gap: 0; }
-    .variant-label { display: none; }
-    .card {
+  /* ═══════════ МОБИЛЬНЫЙ ПРОСМОТР ═══════════ */
+  @media (max-width: 480px) {
+    body { padding: 0; }
+    .story {
+      width: 100vw;
+      height: 100vh;
       box-shadow: none;
-      page-break-after: always;
-      margin: 0 auto;
+      padding: 40px 28px;
     }
-    @page { size: A5; margin: 0; }
-  }
-
-  /* ═══════════════════════════════════════════
-     МОБИЛЬНАЯ ВЕРСИЯ — карточки тянутся по ширине экрана
-     ═══════════════════════════════════════════ */
-
-  /* Планшеты и небольшие ноутбуки — уменьшаем базовую карточку */
-  @media (max-width: 660px) {
-    body {
-      padding: 30px 14px;
-      gap: 40px;
-    }
-
-    .variant-label {
-      font-size: 10px;
-      letter-spacing: 0.24em;
-      margin-bottom: -30px;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 100%;
-      height: auto;         /* высота по контенту */
-      aspect-ratio: auto;
-      padding: 22px;
-    }
-
-    .frame-wrap {
-      padding: 26px 22px;
-      border-radius: 10px;
-    }
-
-    .v8 { padding: 30px 22px; }
-
-    .brand { font-size: 34px; margin-bottom: 4px; }
-    .tagline { font-size: 8px; letter-spacing: 0.28em; margin-bottom: 18px; }
-
-    .title { font-size: 19px; margin-bottom: 10px; }
-
-    .divider { margin-bottom: 16px; }
-
-    .lead { font-size: 11.5px; line-height: 1.55; margin-bottom: 22px; }
-
+    .story::before { inset: 16px; }
+    .brand { font-size: 46px; }
+    .tagline { font-size: 9px; letter-spacing: 0.32em; }
+    .title { font-size: 17px; }
+    .lead { font-size: 12px; max-width: 280px; }
     .col__title { font-size: 26px; }
-    .col__divider { margin: 8px auto 14px; }
-
-    .col ul { gap: 9px; }
-    .col li { font-size: 10.5px; line-height: 1.5; padding-left: 16px; }
-    .col li::before { width: 5px; height: 5px; top: 6px; }
-
-    .footer { margin-top: 20px; padding-top: 16px; }
-    .footer__warranty { font-size: 11.5px; }
-    .footer__contact { font-size: 8px; letter-spacing: 0.26em; }
-  }
-
-  /* Телефоны — карточки становятся вертикальными, колонки друг под другом */
-  @media (max-width: 560px) {
-    body {
-      padding: 24px 10px;
-      gap: 30px;
-    }
-
-    .variant-label {
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      margin-bottom: -22px;
-    }
-
-    .card {
-      padding: 16px;
-      border-radius: 0;      /* край в край — как книжечка */
-    }
-
-    .frame-wrap {
-      padding: 22px 18px;
-      border-radius: 8px;
-    }
-
-    .v8 { padding: 26px 18px; }
-
-    .brand { font-size: 28px; }
-
-    .tagline {
-      font-size: 7px;
-      letter-spacing: 0.24em;
-      margin-bottom: 16px;
-    }
-
-    .title { font-size: 16px; letter-spacing: 0.05em; margin-bottom: 10px; }
-
-    .divider { width: 32px; margin-bottom: 14px; }
-
-    .lead {
-      font-size: 11px;
-      line-height: 1.5;
-      margin-bottom: 20px;
-      max-width: 100%;
-    }
-
-    /* Колонки — в одну колонку */
-    .columns, .v8 .columns {
-      grid-template-columns: 1fr;
-      gap: 22px;
-    }
-
-    .col__title {
-      font-size: 24px;
-      text-align: left;
-      padding-left: 6px;
-    }
-    .col__title--muted { padding-left: 6px; }
-
-    .col__divider {
-      margin: 6px 0 12px 6px;
-    }
-
-    .col ul { gap: 8px; }
-    .col li { font-size: 11px; line-height: 1.5; padding-left: 16px; }
-    .col li::before { width: 5px; height: 5px; top: 6px; }
-
-    .footer { margin-top: 22px; padding-top: 14px; }
-    .footer__warranty { font-size: 11px; }
-    .footer__contact { font-size: 8px; letter-spacing: 0.24em; }
-  }
-
-  /* Очень маленькие телефоны */
-  @media (max-width: 380px) {
-    .brand { font-size: 24px; }
-    .title { font-size: 14px; }
-    .lead { font-size: 10.5px; }
-    .col__title { font-size: 22px; }
     .col li { font-size: 10.5px; }
-    .card { padding: 12px; }
-    .frame-wrap { padding: 18px 14px; }
-    .v8 { padding: 20px 14px; }
   }
+
+  /* ═══════════ ЭКСПОРТ (сохранить как картинку) ═══════════ */
+  /* Для скриншота на телефоне — открой файл в Safari/Chrome и сделай скриншот. */
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════
-     ВАРИАНТ 1 — светлый крем
-     ═══════════════════════════════════════════ -->
-<div class="variant-label">Вариант 1 · светлый крем</div>
-<div class="card v1">
-  <div class="frame-wrap">
+<div class="story">
+
+  <div class="top">
     <div class="brand">Aura by Angel</div>
     <div class="tagline">Ювелирные украшения</div>
-
-    <div class="title">Уход за украшениями</div>
-    <div class="divider"></div>
-
-    <p class="lead">
-      Медицинский сплав не темнеет и подходит даже чувствительной коже. Несколько простых правил — и украшения долго радуют.
-    </p>
-
-    <div class="columns">
-      <div class="col">
-        <div class="col__title">Следует</div>
-        <div class="col__divider"></div>
-        <ul>
-          <li>Надевать последним — после духов и крема</li>
-          <li>Снимать первым — перед душем и бассейном</li>
-          <li>Протирать мягкой тканью после носки</li>
-          <li>Мыть тёплой водой с мылом, если загрязнилось</li>
-          <li>Хранить каждое отдельно</li>
-        </ul>
-      </div>
-
-      <div class="col">
-        <div class="col__title col__title--muted">Не следует</div>
-        <div class="col__divider"></div>
-        <ul>
-          <li>Наносить духи и крем прямо на украшение</li>
-          <li>Оставлять в ванной или в сыром месте</li>
-          <li>Чистить пастой, содой, полиролью</li>
-          <li>Хранить всё в одной куче</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer">
-      <div class="footer__warranty">Гарантия 1 год</div>
-      <div class="footer__contact">Aura by Angel · Майкоп</div>
-    </div>
   </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════
-     ВАРИАНТ 8 — глубокое вино
-     ═══════════════════════════════════════════ -->
-<div class="variant-label">Вариант 8 · глубокое вино</div>
-<div class="card v8">
-  <div class="brand">Aura by Angel</div>
-  <div class="tagline">Ювелирные украшения</div>
 
   <div class="title">Уход за украшениями</div>
   <div class="divider"></div>
@@ -486,7 +266,7 @@
         <li>Надевать последним — после духов и крема</li>
         <li>Снимать первым — перед душем и бассейном</li>
         <li>Протирать мягкой тканью после носки</li>
-        <li>Мыть тёплой водой с мылом, если загрязнилось</li>
+        <li>Мыть тёплой водой с мылом</li>
         <li>Хранить каждое отдельно</li>
       </ul>
     </div>
@@ -507,6 +287,7 @@
     <div class="footer__warranty">Гарантия 1 год</div>
     <div class="footer__contact">Aura by Angel · Майкоп</div>
   </div>
+
 </div>
 
 </body>

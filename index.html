@@ -3,181 +3,171 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Aura by Angel — уход · Story</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italianno&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<title>Aura by Angel — уход · Story 1080×1920</title>
 
 <style>
-  /* ═══════════ ШРИФТЫ ═══════════ */
   @font-face {
     font-family: 'MiamaNueva';
-    src: local('Miama Nueva'),
-         local('MiamaNueva'),
+    src: local('Miama Nueva'), local('MiamaNueva'),
          url('fonts/MiamaNueva.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
+    font-weight: normal; font-style: normal; font-display: block;
   }
-
   @font-face {
     font-family: 'SnellRoundhand';
-    src: local('Snell Roundhand'),
-         local('SnellRoundhand'),
+    src: local('Snell Roundhand'), local('SnellRoundhand'),
          url('fonts/snell-roundhand-3.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
+    font-weight: normal; font-style: normal; font-display: block;
   }
-
   @font-face {
     font-family: 'Gilroy';
-    src: local('Gilroy-Light'),
-         local('Gilroy Light'),
-         local('Gilroy-UltraLight'),
-         local('Gilroy UltraLight'),
+    src: local('Gilroy-Light'), local('Gilroy Light'),
+         local('Gilroy-UltraLight'), local('Gilroy UltraLight'),
          url('fonts/gilroy-light.woff2') format('woff2');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+    font-weight: 300; font-style: normal; font-display: swap;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
+  html, body {
+    height: 100%;
     background: #1a0a0c;
-    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-family: 'Gilroy', 'Jost', -apple-system, sans-serif;
     font-weight: 300;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ═══════════ СТОРИ 9:16 — 1080×1920 (на экране 432×768) ═══════════ */
-  .story {
-    width: 432px;
-    height: 768px;
+  /* ═══════════ ОРИГИНАЛЬНЫЙ СЛАЙД 1080×1920 — показываем на весь экран ═══════════ */
+  .stage {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Точный холст 1080×1920 — масштабируется визуально под экран */
+  #card {
+    width: 1080px;
+    height: 1920px;
     background: #310E12;
     color: #F5EDE0;
-    padding: 56px 44px;
+    padding: 140px 110px;
     display: flex;
     flex-direction: column;
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    transform-origin: center center;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
   }
 
-  /* Тонкая внутренняя рамка */
-  .story::before {
+  /* Тонкая рамка по периметру */
+  #card::before {
     content: "";
     position: absolute;
-    inset: 22px;
-    border: 1px solid rgba(245, 237, 224, 0.14);
-    border-radius: 14px;
+    inset: 56px;
+    border: 2px solid rgba(245, 237, 224, 0.14);
+    border-radius: 30px;
     pointer-events: none;
   }
 
   /* ─── Верхняя часть ─── */
   .top {
     text-align: center;
-    padding-top: 20px;
-    margin-bottom: 44px;
+    padding-top: 40px;
+    margin-bottom: 100px;
   }
 
   .brand {
     font-family: 'SnellRoundhand', 'Italianno', cursive;
     font-weight: normal;
-    font-size: 54px;
+    font-size: 136px;
     line-height: 1;
     color: #F5EDE0;
-    margin-bottom: 10px;
+    margin-bottom: 24px;
   }
 
   .tagline {
-    font-family: 'Gilroy', 'Jost', sans-serif;
-    font-size: 10px;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 22px;
     font-weight: 300;
-    letter-spacing: 0.38em;
+    letter-spacing: 0.42em;
     text-transform: uppercase;
     color: #8A6068;
   }
 
   /* ─── Заголовок ─── */
   .title {
-    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-family: 'Gilroy', sans-serif;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 46px;
     text-align: center;
     line-height: 1.25;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #F5EDE0;
-    margin-bottom: 18px;
+    margin-bottom: 40px;
   }
 
   .divider {
-    width: 40px;
-    height: 1px;
+    width: 96px;
+    height: 2px;
     background: #8A6068;
-    margin: 0 auto 26px;
+    margin: 0 auto 60px;
   }
 
   .lead {
-    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-family: 'Gilroy', sans-serif;
     font-weight: 300;
-    font-size: 13px;
+    font-size: 30px;
     line-height: 1.6;
     text-align: center;
-    color: rgba(245, 237, 224, 0.72);
-    margin: 0 auto 38px;
-    max-width: 320px;
+    color: rgba(245, 237, 224, 0.75);
+    margin: 0 auto 90px;
+    max-width: 800px;
   }
 
   /* ─── Две колонки ─── */
   .columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 26px;
+    gap: 70px;
     flex-grow: 1;
   }
 
   .col__title {
     font-family: 'SnellRoundhand', 'Italianno', cursive;
     font-weight: normal;
-    font-size: 30px;
+    font-size: 78px;
     text-align: center;
-    margin-bottom: 6px;
+    margin-bottom: 14px;
     line-height: 1;
     color: #F5EDE0;
   }
   .col__title--muted { color: #8A6068; }
 
   .col__divider {
-    width: 20px;
-    height: 1px;
+    width: 48px;
+    height: 2px;
     background: currentColor;
     opacity: 0.5;
-    margin: 8px auto 16px;
+    margin: 18px auto 40px;
   }
 
   .col ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 30px;
   }
 
   .col li {
-    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-family: 'Gilroy', sans-serif;
     font-weight: 300;
-    font-size: 11.5px;
+    font-size: 27px;
     line-height: 1.5;
-    color: rgba(245, 237, 224, 0.9);
-    padding-left: 16px;
+    color: rgba(245, 237, 224, 0.92);
+    padding-left: 40px;
     position: relative;
   }
 
@@ -185,110 +175,251 @@
     content: "";
     position: absolute;
     left: 0;
-    top: 7px;
-    width: 5px;
-    height: 5px;
+    top: 16px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background: #8A6068;
-    opacity: 0.85;
+    opacity: 0.9;
   }
 
   /* ─── Подвал ─── */
   .footer {
-    margin-top: 26px;
-    padding-top: 22px;
-    border-top: 1px solid rgba(245, 237, 224, 0.16);
+    margin-top: 70px;
+    padding-top: 50px;
+    border-top: 2px solid rgba(245, 237, 224, 0.16);
     text-align: center;
   }
 
   .footer__warranty {
-    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-family: 'Gilroy', sans-serif;
     font-weight: 300;
-    font-size: 12px;
+    font-size: 28px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 18px;
     color: #F5EDE0;
   }
 
   .footer__contact {
-    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-family: 'Gilroy', sans-serif;
     font-weight: 300;
-    font-size: 9px;
-    letter-spacing: 0.32em;
+    font-size: 20px;
+    letter-spacing: 0.36em;
     text-transform: uppercase;
     color: #8A6068;
   }
 
-  /* ═══════════ МОБИЛЬНЫЙ ПРОСМОТР ═══════════ */
-  @media (max-width: 480px) {
-    body { padding: 0; }
-    .story {
-      width: 100vw;
-      height: 100vh;
-      box-shadow: none;
-      padding: 40px 28px;
-    }
-    .story::before { inset: 16px; }
-    .brand { font-size: 46px; }
-    .tagline { font-size: 9px; letter-spacing: 0.32em; }
-    .title { font-size: 17px; }
-    .lead { font-size: 12px; max-width: 280px; }
-    .col__title { font-size: 26px; }
-    .col li { font-size: 10.5px; }
+  /* ═══════════ Кнопка «Сохранить» (появляется внизу) ═══════════ */
+  .save-btn {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background: #F5EDE0;
+    color: #310E12;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 999px;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .save-btn:hover { transform: translateX(-50%) translateY(-3px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); }
+  .save-btn:active { transform: translateX(-50%) translateY(0); }
+
+  .hint {
+    position: fixed;
+    bottom: 92px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245, 237, 224, 0.6);
+    text-align: center;
+    white-space: nowrap;
   }
 
-  /* ═══════════ ЭКСПОРТ (сохранить как картинку) ═══════════ */
-  /* Для скриншота на телефоне — открой файл в Safari/Chrome и сделай скриншот. */
+  /* Мобильный просмотр — превью на весь экран */
+  @media (max-width: 720px) {
+    .hint { font-size: 10px; letter-spacing: 0.14em; }
+    .save-btn { padding: 14px 32px; font-size: 13px; }
+  }
 </style>
 </head>
 <body>
 
-<div class="story">
+<div class="stage">
+  <div id="card">
 
-  <div class="top">
-    <div class="brand">Aura by Angel</div>
-    <div class="tagline">Ювелирные украшения</div>
-  </div>
-
-  <div class="title">Уход за украшениями</div>
-  <div class="divider"></div>
-
-  <p class="lead">
-    Медицинский сплав не темнеет и подходит даже чувствительной коже. Несколько простых правил — и украшения долго радуют.
-  </p>
-
-  <div class="columns">
-    <div class="col">
-      <div class="col__title">Следует</div>
-      <div class="col__divider"></div>
-      <ul>
-        <li>Надевать последним — после духов и крема</li>
-        <li>Снимать первым — перед душем и бассейном</li>
-        <li>Протирать мягкой тканью после носки</li>
-        <li>Мыть тёплой водой с мылом</li>
-        <li>Хранить каждое отдельно</li>
-      </ul>
+    <div class="top">
+      <div class="brand">Aura by Angel</div>
+      <div class="tagline">Ювелирные украшения</div>
     </div>
 
-    <div class="col">
-      <div class="col__title col__title--muted">Не следует</div>
-      <div class="col__divider"></div>
-      <ul>
-        <li>Наносить духи и крем прямо на украшение</li>
-        <li>Оставлять в ванной или в сыром месте</li>
-        <li>Чистить пастой, содой, полиролью</li>
-        <li>Хранить всё в одной куче</li>
-      </ul>
+    <div class="title">Уход за украшениями</div>
+    <div class="divider"></div>
+
+    <p class="lead">
+      Медицинский сплав не темнеет и подходит даже чувствительной коже. Несколько простых правил — и украшения долго радуют.
+    </p>
+
+    <div class="columns">
+      <div class="col">
+        <div class="col__title">Следует</div>
+        <div class="col__divider"></div>
+        <ul>
+          <li>Надевать последним — после духов и крема</li>
+          <li>Снимать первым — перед душем и бассейном</li>
+          <li>Протирать мягкой тканью после носки</li>
+          <li>Мыть тёплой водой с мылом</li>
+          <li>Хранить каждое отдельно</li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <div class="col__title col__title--muted">Не следует</div>
+        <div class="col__divider"></div>
+        <ul>
+          <li>Наносить духи и крем прямо на украшение</li>
+          <li>Оставлять в ванной или в сыром месте</li>
+          <li>Чистить пастой, содой, полиролью</li>
+          <li>Хранить всё в одной куче</li>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <div class="footer">
-    <div class="footer__warranty">Гарантия 1 год</div>
-    <div class="footer__contact">Aura by Angel · Майкоп</div>
-  </div>
+    <div class="footer">
+      <div class="footer__warranty">Гарантия 1 год</div>
+      <div class="footer__contact">Aura by Angel · Майкоп</div>
+    </div>
 
+  </div>
 </div>
+
+<div class="hint">Долгое нажатие на карточку — сохранить как изображение</div>
+<button class="save-btn" id="saveBtn">Сохранить в галерею</button>
+
+<!-- Библиотека html2canvas для экспорта в PNG 1080×1920 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+  // ─── Автомасштаб карточки под экран ───
+  const card = document.getElementById('card');
+  const stage = document.querySelector('.stage');
+
+  function fitCard() {
+    const stageW = stage.clientWidth;
+    const stageH = stage.clientHeight;
+    const scaleX = stageW / 1080;
+    const scaleY = stageH / 1920;
+    const scale = Math.min(scaleX, scaleY) * 0.94; // 6% запас
+    card.style.transform = `scale(${scale})`;
+  }
+
+  fitCard();
+  window.addEventListener('resize', fitCard);
+
+  // ─── Экспорт в PNG 1080×1920 ───
+  const saveBtn = document.getElementById('saveBtn');
+  let exporting = false;
+
+  async function exportToPng() {
+    if (exporting) return;
+    exporting = true;
+
+    const originalTransform = card.style.transform;
+    card.style.transform = 'scale(1)';
+
+    try {
+      const canvas = await html2canvas(card, {
+        width: 1080,
+        height: 1920,
+        scale: 1,
+        useCORS: true,
+        backgroundColor: '#310E12',
+        logging: false
+      });
+
+      const dataUrl = canvas.toDataURL('image/png');
+
+      // На мобильных — открываем картинку в новой вкладке, чтобы можно было
+      // сделать долгое нажатие → «Сохранить в галерею»
+      if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        const w = window.open('');
+        if (w) {
+          w.document.write(`<img src="${dataUrl}" style="width:100%;display:block" alt="Памятка"/>`);
+          w.document.title = 'Памятка — сохраните через долгое нажатие';
+          w.document.body.style.margin = '0';
+          w.document.body.style.background = '#1a0a0c';
+        } else {
+          // fallback — прямая ссылка на скачивание
+          downloadPng(dataUrl);
+        }
+      } else {
+        downloadPng(dataUrl);
+      }
+    } catch (e) {
+      console.error('Ошибка экспорта:', e);
+      alert('Не удалось создать изображение. Попробуйте ещё раз.');
+    } finally {
+      card.style.transform = originalTransform;
+      exporting = false;
+    }
+  }
+
+  function downloadPng(dataUrl) {
+    const link = document.createElement('a');
+    link.download = 'aura-angel-уход-1080x1920.png';
+    link.href = dataUrl;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  // ─── Кнопка «Сохранить» ───
+  saveBtn.addEventListener('click', exportToPng);
+
+  // ─── Долгое нажатие на карточку → сохранить ───
+  let longPressTimer = null;
+  let longPressTriggered = false;
+
+  function startLongPress(e) {
+    longPressTriggered = false;
+    longPressTimer = setTimeout(() => {
+      longPressTriggered = true;
+      exportToPng();
+    }, 600); // 600 мс — стандартное «долгое нажатие»
+  }
+
+  function cancelLongPress() {
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      longPressTimer = null;
+    }
+  }
+
+  card.addEventListener('mousedown', startLongPress);
+  card.addEventListener('touchstart', startLongPress, { passive: true });
+  card.addEventListener('mouseup', cancelLongPress);
+  card.addEventListener('mouseleave', cancelLongPress);
+  card.addEventListener('touchend', cancelLongPress);
+  card.addEventListener('touchcancel', cancelLongPress);
+  card.addEventListener('touchmove', cancelLongPress);
+
+  // Не даём браузеру вызвать своё контекстное меню при долгом нажатии
+  card.addEventListener('contextmenu', e => e.preventDefault());
+</script>
 
 </body>
 </html>

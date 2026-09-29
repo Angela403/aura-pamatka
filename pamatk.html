@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aura by Angel — памятка по уходу</title>
+
+<!-- Fallback-шрифты из Google (на случай, если локальные не подгрузятся) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italianno&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+  /* ═══════════ ШРИФТЫ ═══════════ */
+  @font-face {
+    font-family: 'MiamaNueva';
+    src: local('Miama Nueva'),
+         local('MiamaNueva'),
+         url('fonts/MiamaNueva.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+
+  @font-face {
+    font-family: 'SnellRoundhand';
+    src: local('Snell Roundhand'),
+         local('SnellRoundhand'),
+         url('fonts/snell-roundhand-3.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+
+  @font-face {
+    font-family: 'Gilroy';
+    src: local('Gilroy-Light'),
+         local('Gilroy Light'),
+         local('Gilroy-UltraLight'),
+         local('Gilroy UltraLight'),
+         url('fonts/gilroy-light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #D9CFBB;
+    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-weight: 300;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .variant-label {
+    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #310E12;
+    opacity: 0.55;
+    margin-bottom: -50px;
+  }
+
+  /* ═══════════ БАЗОВАЯ КАРТОЧКА A5 (148×210 мм) ═══════════ */
+  .card {
+    width: 594px;
+    height: 842px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(49, 14, 18, 0.15);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ─── Общая внутренняя обёртка ─── */
+  .frame-wrap {
+    border: 1px solid var(--ink-faint);
+    border-radius: 12px;
+    padding: 44px 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ─── Шапка ─── */
+  .brand {
+    font-family: 'SnellRoundhand', 'Italianno', cursive;
+    font-weight: normal;
+    font-size: 44px;
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+
+  .tagline {
+    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+
+  /* ─── Заголовок карточки — Gilroy-Light ─── */
+  .title {
+    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.55;
+    margin: 0 auto 22px;
+  }
+
+  .lead {
+    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 12.5px;
+    line-height: 1.6;
+    text-align: center;
+    color: var(--ink-soft);
+    margin-bottom: 30px;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ─── Две колонки ─── */
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 34px;
+    flex-grow: 1;
+  }
+
+  /* «Следует / Не следует» — Snell Roundhand */
+  .col__title {
+    font-family: 'SnellRoundhand', 'Italianno', cursive;
+    font-weight: normal;
+    font-size: 34px;
+    text-align: center;
+    margin-bottom: 6px;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .col__title--muted { color: var(--accent); }
+
+  .col__divider {
+    width: 20px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.4;
+    margin: 10px auto 18px;
+  }
+
+  .col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .col li {
+    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--ink);
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .col li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.75;
+  }
+
+  /* ─── Подвал ─── */
+  .footer {
+    margin-top: 26px;
+    padding-top: 20px;
+    border-top: 1px solid var(--ink-faint);
+    text-align: center;
+  }
+
+  .footer__warranty {
+    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+
+  .footer__contact {
+    font-family: 'Gilroy', 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ═══════════════════════════════════════════
+     ВАРИАНТ 1 — светлый крем + рамка
+     ═══════════════════════════════════════════ */
+  .v1 {
+    background: #F5EDE0;
+    --ink: #310E12;
+    --accent: #8A6068;
+    --ink-soft: rgba(49, 14, 18, 0.65);
+    --ink-faint: rgba(49, 14, 18, 0.18);
+  }
+
+  /* ═══════════════════════════════════════════
+     ВАРИАНТ 8 — глубокое вино + золото
+     ═══════════════════════════════════════════ */
+  .v8 {
+    background: #3E1A1E;
+    --ink: #FEEFB8;
+    --accent: #8A6068;
+    --ink-soft: rgba(254, 239, 184, 0.72);
+    --ink-faint: rgba(254, 239, 184, 0.22);
+    padding: 56px 52px;
+  }
+
+  .v8 .brand { color: #FEEFB8; }
+  .v8 .tagline { color: #E5C66B; }
+  .v8 .title { color: #FEEFB8; }
+  .v8 .divider { background: #E5C66B; }
+  .v8 .lead { color: rgba(254, 239, 184, 0.72); }
+  .v8 .col__title { color: #FEEFB8; }
+  .v8 .col__title--muted { color: #E5C66B; }
+  .v8 .col li { color: rgba(254, 239, 184, 0.9); }
+  .v8 .col li::before { background: #E5C66B; }
+  .v8 .footer { border-top-color: rgba(254, 239, 184, 0.22); }
+  .v8 .footer__warranty { color: #FEEFB8; }
+  .v8 .footer__contact { color: #E5C66B; }
+
+  .v8 .columns { gap: 40px; }
+
+  .v8 .col__divider { background: #E5C66B; }
+
+  /* ═══════════ ПЕЧАТЬ (A5 без полей) ═══════════ */
+  @media print {
+    body {
+      background: #fff;
+      padding: 0;
+      gap: 0;
+    }
+    .variant-label { display: none; }
+    .card {
+      box-shadow: none;
+      page-break-after: always;
+      margin: 0 auto;
+    }
+    @page {
+      size: A5;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     ВАРИАНТ 1 — светлый крем
+     ═══════════════════════════════════════════ -->
+<div class="variant-label">Вариант 1 · светлый крем</div>
+<div class="card v1">
+  <div class="frame-wrap">
+    <div class="brand">Aura by Angel</div>
+    <div class="tagline">Ювелирные украшения</div>
+
+    <div class="title">Уход за украшениями</div>
+    <div class="divider"></div>
+
+    <p class="lead">
+      Медицинский сплав не темнеет и подходит даже чувствительной коже. Несколько простых правил — и украшения долго радуют.
+    </p>
+
+    <div class="columns">
+      <div class="col">
+        <div class="col__title">Следует</div>
+        <div class="col__divider"></div>
+        <ul>
+          <li>Надевать последним — после духов и крема</li>
+          <li>Снимать первым — перед душем и бассейном</li>
+          <li>Протирать мягкой тканью после носки</li>
+          <li>Мыть тёплой водой с мылом, если загрязнилось</li>
+          <li>Хранить каждое отдельно</li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <div class="col__title col__title--muted">Не следует</div>
+        <div class="col__divider"></div>
+        <ul>
+          <li>Наносить духи и крем прямо на украшение</li>
+          <li>Оставлять в ванной или в сыром месте</li>
+          <li>Чистить пастой, содой, полиролью</li>
+          <li>Хранить всё в одной куче</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer__warranty">Гарантия 1 год</div>
+      <div class="footer__contact">Aura by Angel · Майкоп</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     ВАРИАНТ 8 — глубокое вино
+     ═══════════════════════════════════════════ -->
+<div class="variant-label">Вариант 8 · глубокое вино</div>
+<div class="card v8">
+  <div class="brand">Aura by Angel</div>
+  <div class="tagline">Ювелирные украшения</div>
+
+  <div class="title">Уход за украшениями</div>
+  <div class="divider"></div>
+
+  <p class="lead">
+    Медицинский сплав не темнеет и подходит даже чувствительной коже. Несколько простых правил — и украшения долго радуют.
+  </p>
+
+  <div class="columns">
+    <div class="col">
+      <div class="col__title">Следует</div>
+      <div class="col__divider"></div>
+      <ul>
+        <li>Надевать последним — после духов и крема</li>
+        <li>Снимать первым — перед душем и бассейном</li>
+        <li>Протирать мягкой тканью после носки</li>
+        <li>Мыть тёплой водой с мылом, если загрязнилось</li>
+        <li>Хранить каждое отдельно</li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <div class="col__title col__title--muted">Не следует</div>
+      <div class="col__divider"></div>
+      <ul>
+        <li>Наносить духи и крем прямо на украшение</li>
+        <li>Оставлять в ванной или в сыром месте</li>
+        <li>Чистить пастой, содой, полиролью</li>
+        <li>Хранить всё в одной куче</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer__warranty">Гарантия 1 год</div>
+    <div class="footer__contact">Aura by Angel · Майкоп</div>
+  </div>
+</div>
+
+</body>
+</html>

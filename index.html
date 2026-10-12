@@ -19,6 +19,13 @@
          url('fonts/gilroy-light.woff2') format('woff2');
     font-weight: 300; font-style: normal; font-display: swap;
   }
+  @font-face {
+    font-family: 'Gilroy';
+    src: local('Gilroy-Regular'), local('Gilroy Regular'),
+         local('Gilroy-Medium'), local('Gilroy Medium'),
+         url('fonts/gilroy-light.woff2') format('woff2');
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -89,14 +96,17 @@
     color: #8A6068;
   }
 
-  /* ─── Заголовок ─── */
+  /* ─── Заголовок — Gilroy, полужирный, прописные ─── */
   .title {
-    font-family: 'SnellRoundhand', cursive;
-    font-size: 96px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 500;
+    font-size: 64px;
     text-align: center;
-    line-height: 1;
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: #F5EDE0;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
 
   .subtitle {

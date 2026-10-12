@@ -3,15 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Aura by Angel — уход · Story 1080×1920</title>
+<title>Aura by Angel — уход за украшениями · Story 1080×1920</title>
 
 <style>
-  @font-face {
-    font-family: 'MiamaNueva';
-    src: local('Miama Nueva'), local('MiamaNueva'),
-         url('fonts/MiamaNueva.woff2') format('woff2');
-    font-weight: normal; font-style: normal; font-display: block;
-  }
   @font-face {
     font-family: 'SnellRoundhand';
     src: local('Snell Roundhand'), local('SnellRoundhand'),
@@ -36,7 +30,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ═══════════ ОРИГИНАЛЬНЫЙ СЛАЙД 1080×1920 ═══════════ */
   .stage {
     width: 100vw;
     height: 100vh;
@@ -64,32 +57,28 @@
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
   }
 
-  /* Тонкая рамка по периметру — отдельный элемент */
   .card-frame {
     position: absolute;
-    top: 56px;
-    right: 56px;
-    bottom: 56px;
-    left: 56px;
+    top: 56px; right: 56px; bottom: 56px; left: 56px;
     border: 2px solid rgba(245, 237, 224, 0.14);
     border-radius: 30px;
     pointer-events: none;
     box-sizing: border-box;
   }
 
-  /* ─── Верхняя часть ─── */
+  /* ─── Верх ─── */
   .top {
     text-align: center;
-    padding-top: 100px;
-    margin-bottom: 100px;
+    padding-top: 80px;
+    margin-bottom: 60px;
   }
 
   .brand {
     font-family: 'SnellRoundhand', cursive;
-    font-size: 136px;
+    font-size: 120px;
     line-height: 1;
     color: #F5EDE0;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .tagline {
@@ -102,13 +91,22 @@
 
   /* ─── Заголовок ─── */
   .title {
-    font-family: 'Gilroy', sans-serif;
-    font-size: 46px;
+    font-family: 'SnellRoundhand', cursive;
+    font-size: 96px;
     text-align: center;
-    line-height: 1.25;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    line-height: 1;
     color: #F5EDE0;
+    margin-bottom: 20px;
+  }
+
+  .subtitle {
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #8A6068;
     margin-bottom: 40px;
   }
 
@@ -116,32 +114,35 @@
     width: 96px;
     height: 2px;
     background: #8A6068;
-    margin: 0 auto 60px;
+    margin: 0 auto 46px;
   }
 
   .lead {
     font-family: 'Gilroy', sans-serif;
-    font-size: 30px;
+    font-weight: 300;
+    font-size: 28px;
     line-height: 1.6;
     text-align: center;
-    color: rgba(245, 237, 224, 0.75);
-    margin: 0 auto 90px;
+    color: rgba(245, 237, 224, 0.82);
     max-width: 800px;
+    margin: 0 auto 60px;
   }
 
   /* ─── Две колонки ─── */
   .columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 70px;
+    gap: 50px;
     flex-grow: 1;
+    margin-bottom: 60px;
   }
 
   .col__title {
     font-family: 'SnellRoundhand', cursive;
-    font-size: 78px;
+    font-weight: normal;
+    font-size: 68px;
     text-align: center;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     line-height: 1;
     color: #F5EDE0;
   }
@@ -152,22 +153,23 @@
     height: 2px;
     background: currentColor;
     opacity: 0.5;
-    margin: 18px auto 40px;
+    margin: 16px auto 32px;
   }
 
   .col ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 24px;
   }
 
   .col li {
     font-family: 'Gilroy', sans-serif;
-    font-size: 27px;
+    font-weight: 300;
+    font-size: 24px;
     line-height: 1.5;
     color: rgba(245, 237, 224, 0.92);
-    padding-left: 40px;
+    padding-left: 34px;
     position: relative;
   }
 
@@ -175,39 +177,41 @@
     content: "";
     position: absolute;
     left: 0;
-    top: 16px;
-    width: 12px;
-    height: 12px;
+    top: 14px;
+    width: 11px;
+    height: 11px;
     border-radius: 50%;
     background: #8A6068;
     opacity: 0.9;
   }
 
-  /* ─── Подвал ─── */
-  .footer {
-    margin-top: 70px;
-    padding-bottom: 100px;
+  /* ─── Финальная строка ─── */
+  .final {
     text-align: center;
+    padding-bottom: 80px;
+    border-top: 1px solid rgba(245, 237, 224, 0.16);
+    padding-top: 40px;
+    margin-top: auto;
   }
 
-  .footer__warranty {
-    font-family: 'Gilroy', sans-serif;
-    font-size: 28px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 18px;
+  .final__msg {
+    font-family: 'SnellRoundhand', cursive;
+    font-size: 42px;
     color: #F5EDE0;
+    margin-bottom: 16px;
+    line-height: 1.2;
   }
 
-  .footer__contact {
+  .final__contact {
     font-family: 'Gilroy', sans-serif;
-    font-size: 20px;
-    letter-spacing: 0.36em;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     color: #8A6068;
   }
 
-  /* ═══════════ Кнопка «Сохранить» ═══════════ */
+  /* ─── Кнопка ─── */
   .save-btn {
     position: fixed;
     bottom: 28px;
@@ -262,44 +266,44 @@
 
     <div class="top">
       <div class="brand">Aura by Angel</div>
-      <div class="tagline">Ювелирные украшения</div>
+      <div class="tagline">Украшения и аксессуары</div>
     </div>
 
     <div class="title">Уход за украшениями</div>
+    <div class="subtitle">Медицинский сплав · нержавеющая сталь</div>
     <div class="divider"></div>
 
     <p class="lead">
-      Медицинский сплав не темнеет и подходит даже чувствительной коже. Несколько простых правил — и украшения долго радуют.
+      Немного внимания — и украшения будут радовать дольше
     </p>
 
     <div class="columns">
       <div class="col">
-        <div class="col__title">Следует</div>
+        <div class="col__title">Можно</div>
         <div class="col__divider"></div>
         <ul>
-          <li>Надевать последним — после духов и крема</li>
-          <li>Снимать первым — перед душем и бассейном</li>
-          <li>Протирать мягкой тканью после носки</li>
-          <li>Мыть тёплой водой с мылом</li>
-          <li>Хранить каждое отдельно</li>
+          <li>Надевать последним — после духов, крема и лака для волос</li>
+          <li>Снимать первым — перед душем, бассейном, уборкой</li>
+          <li>Протирать сухой мягкой тканью после носки</li>
+          <li>Хранить каждое отдельно — в мешочке или коробочке</li>
         </ul>
       </div>
 
       <div class="col">
-        <div class="col__title col__title--muted">Не следует</div>
+        <div class="col__title col__title--muted">Нельзя</div>
         <div class="col__divider"></div>
         <ul>
-          <li>Наносить духи и крем прямо на украшение</li>
+          <li>Наносить духи, крем и лак прямо на украшение</li>
           <li>Оставлять в ванной или в сыром месте</li>
-          <li>Чистить пастой, содой, полиролью</li>
-          <li>Хранить всё в одной куче</li>
+          <li>Чистить зубной пастой, содой или полиролью для серебра</li>
+          <li>Хранить всё в одной куче — украшения царапают друг друга</li>
         </ul>
       </div>
     </div>
 
-    <div class="footer">
-      <div class="footer__warranty">Гарантия 1 год</div>
-      <div class="footer__contact">Aura by Angel · Майкоп</div>
+    <div class="final">
+      <div class="final__msg">Пишите — отвечаю сама</div>
+      <div class="final__contact">Aura by Angel · украшения и аксессуары</div>
     </div>
 
   </div>
@@ -308,7 +312,6 @@
 <div class="hint">Долгое нажатие на карточку — сохранить как изображение</div>
 <button class="save-btn" id="saveBtn">Сохранить в галерею</button>
 
-<!-- Библиотека html2canvas -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <script>
@@ -316,7 +319,6 @@
   const stage = document.querySelector('.stage');
   const saveBtn = document.getElementById('saveBtn');
 
-  // ─── Автомасштаб карточки под экран ───
   function fitCard() {
     const stageW = stage.clientWidth;
     const stageH = stage.clientHeight;
@@ -329,18 +331,14 @@
   fitCard();
   window.addEventListener('resize', fitCard);
 
-  // ─── Экспорт в PNG 1080×1920 ───
   let exporting = false;
 
   async function exportToPng() {
     if (exporting) return;
     exporting = true;
 
-    // Сброс масштаба для точного снимка
     const originalTransform = card.style.transform;
     card.style.transform = 'scale(1)';
-
-    // Скрываем тень на время экспорта
     stage.classList.add('exporting');
 
     try {
@@ -363,12 +361,11 @@
 
       const dataUrl = canvas.toDataURL('image/png');
 
-      // Для мобильных: открываем картинку, чтобы её можно было сохранить долгим нажатием
       if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
         const w = window.open('');
         if (w) {
-          w.document.write(`<img src="${dataUrl}" style="width:100%;display:block" alt="Памятка"/>`);
-          w.document.title = 'Памятка — сохраните через долгое нажатие';
+          w.document.write(`<img src="${dataUrl}" style="width:100%;display:block" alt="Уход за украшениями"/>`);
+          w.document.title = 'Сохраните через долгое нажатие';
           w.document.body.style.margin = '0';
           w.document.body.style.background = '#1a0a0c';
         } else {
@@ -398,7 +395,6 @@
 
   saveBtn.addEventListener('click', exportToPng);
 
-  // ─── Долгое нажатие ───
   let longPressTimer = null;
 
   function startLongPress() {
